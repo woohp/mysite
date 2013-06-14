@@ -36,4 +36,6 @@ SmartTodo::Application.configure do
   config.assets.debug = true
 
   config.middleware.delete Rack::Lock
+
+  config.template_assets.cache = false
 end

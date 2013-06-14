@@ -28,6 +28,7 @@ gem 'template_assets', git: '/Users/huipeng/template_assets'
 gem 'websocket-rails'
 gem 'sync', git: '/Users/huipeng/sync'
 gem 'bootstrap-sass'
+gem 'sorcery'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
