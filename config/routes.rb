@@ -1,6 +1,13 @@
 SmartTodo::Application.routes.draw do
   root to: 'home#index'
 
+  scope "/api" do
+    resources :users
+    resources :sessions
+  end
+
+  match '*rest' => 'home#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

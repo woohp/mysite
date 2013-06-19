@@ -16,5 +16,6 @@
 //= require angular
 //= require sync
 //= require ./smartTodo
+//= require bootstrap
 //= require_tree .
 

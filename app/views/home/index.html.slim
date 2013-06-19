@@ -1,3 +1,18 @@
 = template_assets
 
-ng-view
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      a.btn.btn-navbar.icon-reorder(data-toggle="collapse" data-target=".nav-collapse")
+  
+      a.brand(href="/") Home
+      form.navbar-search
+        input.search-query.input-medium(type="search" placeholder="Search")
+      .nav-collapse.collapse
+        ul.nav.pull-right
+          li
+            a(href="/settings") Settings
+
+
+.container-fluid
+  ng-view
