@@ -1,1 +1,17 @@
-h1 Foo
+.well
+  form.form-inline(style="margin-bottom: 0")
+    label New
+    '
+    input.input-small(type="text" ng-model="newTodo.title" placeholder="Title")
+    '
+    input.btn.btn-primary(type="submit" ng-click="createNewTodo()")
+
+accordion#todos(close-others="oneAtATime")
+  accordion-group(ng-repeat="todo in todos" heading="{{todo.title}}")
+    div
+      .muted(ng-show="!todo.description") No Description...
+      | {{ todo.description }}
+    a.btn.btn-small(ng-href="/{{todo.id}}/edit")
+      | Edit
+      '
+      .icon-edit

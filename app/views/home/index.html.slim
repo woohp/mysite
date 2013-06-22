@@ -12,6 +12,12 @@
         ul.nav.pull-right
           li
             a(href="/settings") Settings
+          li(ng-show="!user.username")
+            a(href="/login") Login
+          li(ng-show="!user.username")
+            a(href="/signup") Sign up
+          li(ng-show="user.username")
+            a(href="/logout") Logout
 
 
 .container-fluid

@@ -2,8 +2,11 @@ SmartTodo::Application.routes.draw do
   root to: 'home#index'
 
   scope "/api" do
-    resources :users
-    resources :sessions
+    resources :users do
+      get 'current', on: :collection
+    end
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
   end
 
   match '*rest' => 'home#index'
