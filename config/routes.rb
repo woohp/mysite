@@ -9,7 +9,7 @@ SmartTodo::Application.routes.draw do
     delete 'logout' => 'sessions#destroy'
   end
 
-  match '*rest' => 'home#index'
+  get '*rest' => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -14,9 +14,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(username: params[:username],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+    user = User.create(user_params)
     auto_login(user) if user.id?
 
     respond_with user
@@ -25,5 +23,11 @@ class UsersController < ApplicationController
   def update
     respond_with nil
 #    respond_with User.upda
+  end
+
+
+  private
+  def user_params
+    params.permit(:username, :email, :password, :password_confirmation)
   end
 end
