@@ -1,1 +1,7 @@
-h1 Todo Show
+form
+  labeled-input(type="text" ng-model="todo.title" label="Title")
+  labeled-input(type="text" ng-model="todo.description" label="Description")
+
+  button.btn.btn-primary(type="submit" ng-click="update()") Update
+  '
+  button.btn.btn-danger(ng-click="destroy()") Destroy

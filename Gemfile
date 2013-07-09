@@ -20,16 +20,23 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
 end
 
+group :test, :development do
+  gem 'factory_girl_rails'
+  gem 'minitest-rails'
+end
+
 gem 'thin'
 gem 'slim-rails'
 gem 'jquery-rails'
 gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
 gem 'template_assets', git: '/Users/huipeng/template_assets'
 gem 'websocket-rails'
 gem 'sync', git: '/Users/huipeng/sync'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sorcery'
+gem 'simple_enum'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

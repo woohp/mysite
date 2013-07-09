@@ -3,12 +3,12 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container-fluid
-      a.btn.btn-navbar.icon-reorder(data-toggle="collapse" data-target=".nav-collapse")
+      button.btn.btn-navbar.icon-reorder(ng-click="navBarCollapsed = !navBarCollapsed")
   
       a.brand(href="/") Home
       form.navbar-search
         input.search-query.input-medium(type="search" placeholder="Search")
-      .nav-collapse.collapse
+      .collapse.nav-collapse(collapse="!navBarCollapsed")
         ul.nav.pull-right
           li
             a(href="/settings") Settings

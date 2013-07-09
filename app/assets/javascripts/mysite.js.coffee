@@ -1,4 +1,4 @@
-@app = angular.module('MySite', ['sync'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
+@app = angular.module('MySite', ['sync', 'ui.bootstrap', 'ui.bootstrap.tpls'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider
     .when('/', templateUrl: 'index', controller: 'TodosIndexCtrl', resolve: { login: requireLogin })
     .when('/signup', templateUrl: 'signup', controller: 'SignupCtrl')
@@ -6,6 +6,7 @@
     .when('/logout', resolve: { logout: logout })
     .when('/settings', templateUrl: 'settings', controller: 'SettingsCtrl')
     .when('/:id', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
+    .when('/:id/edit', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
 
   $locationProvider.html5Mode true
 

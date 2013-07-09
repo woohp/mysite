@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614100909) do
+ActiveRecord::Schema.define(:version => 20130622054601) do
+
+  create_table "todos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "status_cd"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "todos", ["user_id"], :name => "index_todos_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",         :null => false

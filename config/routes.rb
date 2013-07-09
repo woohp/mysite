@@ -5,6 +5,7 @@ MySite::Application.routes.draw do
     resources :users do
       get 'current', on: :collection
     end
+    resources :todos
     post 'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
   end

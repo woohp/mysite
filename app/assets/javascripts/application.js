@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require websocket_rails/main
 //= require angular
+//= require angular-ui-bootstrap-tpls
 //= require sync
-//= require bootstrap
 //= require ./mysite
 //= require_tree .
 
