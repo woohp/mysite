@@ -10,7 +10,7 @@
         input.search-query.input-medium(type="search" placeholder="Search")
       .collapse.nav-collapse(collapse="!navBarCollapsed")
         ul.nav.pull-right
-          li
+          li(ng-show="user.username")
             a(href="/settings") Settings
           li(ng-show="!user.username")
             a(href="/login") Login

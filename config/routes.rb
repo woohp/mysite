@@ -8,6 +8,7 @@ MySite::Application.routes.draw do
     resources :todos
     post 'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
+    get "utils/secure_random"
   end
 
   get '*rest' => 'home#index'

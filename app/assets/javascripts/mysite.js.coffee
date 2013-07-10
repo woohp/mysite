@@ -1,12 +1,19 @@
 @app = angular.module('MySite', ['sync', 'ui.bootstrap', 'ui.bootstrap.tpls'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
+
   $routeProvider
-    .when('/', templateUrl: 'index', controller: 'TodosIndexCtrl', resolve: { login: requireLogin })
     .when('/signup', templateUrl: 'signup', controller: 'SignupCtrl')
     .when('/login', templateUrl: 'login', controller: 'LoginCtrl')
     .when('/logout', resolve: { logout: logout })
+
+    .when('/', templateUrl: 'home', controller: 'HomeCtrl', resolve: { login: requireLogin })
     .when('/settings', templateUrl: 'settings', controller: 'SettingsCtrl')
-    .when('/:id', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
-    .when('/:id/edit', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
+
+    .when('/whiteboards', templateUrl: 'whiteboards/index', controller: 'WhiteboardsIndexCtrl', resolve: { login: requireLogin })
+    .when('/whiteboards/:id', templateUrl: 'whiteboards/show', controller: 'WhiteboardsShowCtrl', resolve: { login: requireLogin })
+
+    .when('/todos', templateUrl: 'todos/index', controller: 'TodosIndexCtrl', resolve: { login: requireLogin })
+    .when('/todos/:id', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
+    .when('/todos/:id/edit', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
 
   $locationProvider.html5Mode true
 
