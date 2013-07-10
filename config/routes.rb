@@ -1,4 +1,4 @@
-SmartTodo::Application.routes.draw do
+MySite::Application.routes.draw do
   root to: 'home#index'
 
   scope "/api" do

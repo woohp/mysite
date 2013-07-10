@@ -15,7 +15,7 @@
 //= require websocket_rails/main
 //= require angular
 //= require sync
-//= require ./smartTodo
 //= require bootstrap
+//= require ./mysite
 //= require_tree .
 

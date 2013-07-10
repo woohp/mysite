@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SmartTodo::Application.load_tasks
+MySite::Application.load_tasks

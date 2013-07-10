@@ -1,4 +1,4 @@
-@app = angular.module('smartTodo', ['sync'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
+@app = angular.module('MySite', ['sync'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider
     .when('/', templateUrl: 'index', controller: 'TodosIndexCtrl', resolve: { login: requireLogin })
     .when('/signup', templateUrl: 'signup', controller: 'SignupCtrl')
