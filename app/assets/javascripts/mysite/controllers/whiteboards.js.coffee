@@ -145,7 +145,9 @@
     mousePos = getMousePos(e)
     mouseDownPos = mousePos
 
-    if $scope.mode == 'pencil'
+    mode = $scope.mode
+    if mode == 'pencil' or mode == 'eraser'
+      ctx.strokeStyle = 'white' if mode == 'eraser'
       ctx.beginPath()
       ctx.moveTo(mousePos.x, mousePos.y)
     e.preventDefault()
@@ -155,37 +157,42 @@
     mousedown = false
     mousePos = getMousePos(e)
 
-    if $scope.mode == 'pencil'
-      if mousePos.x == mouseDownPos.x and mousePos.y == mouseDownPos.y
-        mousePos.x += 0.01
-        mousePos.y += 0.01
-      drawLine(ctx, mouseDownPos, mousePos)
-    else if $scope.mode == 'line'
-      drawLine(ctx, mouseDownPos, mousePos)
-      ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
-    else if $scope.mode == 'rect'
-      drawRect(ctx, mouseDownPos, mousePos)
-      ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
-    else if $scope.mode == 'ellipse'
-      drawEllipse(ctx, mouseDownPos, mousePos)
-      ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+    switch $scope.mode
+      when 'pencil', 'eraser'
+        if mousePos.x == mouseDownPos.x and mousePos.y == mouseDownPos.y
+          mousePos.x += 0.01
+          mousePos.y += 0.01
+        drawLine(ctx, mouseDownPos, mousePos)
+        ctx.strokeStyle = $scope.color
+      when 'line'
+        drawLine(ctx, mouseDownPos, mousePos)
+        ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+      when 'rect'
+        drawRect(ctx, mouseDownPos, mousePos)
+        ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+      when 'ellipse'
+        drawEllipse(ctx, mouseDownPos, mousePos)
+        ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+
     e.preventDefault()
 
   $scope.mousemove = (e) ->
     return unless mousedown
     mousePos = getMousePos(e)
 
-    if $scope.mode == 'pencil'
-      drawLine(ctx, mouseDownPos, mousePos)
-      mouseDownPos = mousePos
-    else if $scope.mode == 'line'
-      ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
-      drawLine(ctx2, mouseDownPos, mousePos)
-    else if $scope.mode == 'rect'
-      ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
-      drawRect(ctx2, mouseDownPos, mousePos)
-    else if $scope.mode == 'ellipse'
-      ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
-      drawEllipse(ctx2, mouseDownPos, mousePos)
+    switch $scope.mode
+      when 'pencil', 'eraser'
+        drawLine(ctx, mouseDownPos, mousePos)
+        mouseDownPos = mousePos
+      when 'line'
+        ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+        drawLine(ctx2, mouseDownPos, mousePos)
+      when 'rect'
+        ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+        drawRect(ctx2, mouseDownPos, mousePos)
+      when 'ellipse'
+        ctx2.clearRect(0, 0, canvasWidth, canvasHeight)
+        drawEllipse(ctx2, mouseDownPos, mousePos)
+
     e.preventDefault()
 ]
