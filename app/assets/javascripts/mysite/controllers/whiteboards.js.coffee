@@ -24,22 +24,17 @@
   canvas2.height = canvasHeight
   $canvas1 = $(canvas1)
 
-  ctx.lineJoin = 'round'
-  ctx.lineCap = 'round'
-  ctx2.lineJoin = 'round'
-  ctx2.lineCap = 'round'
+  ctx.lineJoin = ctx.lineCap = ctx2.lineJoin = ctx2.lineCap = 'round'
 
   $scope.color = 'black'
   $scope.colorChoices = ['black', 'white', 'silver', 'gray',
     'red', 'maroon', 'yellow', 'olive', 'lime', 'green', 'aqua',
     'teal', 'blue', 'navy', 'fuchsia', 'purple']
-  $scope.$watch 'color', ->
-    ctx.strokeStyle = $scope.color
+  $scope.$watch 'color', -> ctx.strokeStyle = $scope.color
 
   $scope.lineWidth = 1
   $scope.lineWidthChoices = [1, 2, 4, 6, 8, 12, 16]
-  $scope.$watch 'lineWidth', ->
-    ctx.lineWidth = $scope.lineWidth
+  $scope.$watch 'lineWidth', -> ctx.lineWidth = $scope.lineWidth
 
   # networking
   sendToServer = (context, mode, pt1, pt2, sender_id) ->
@@ -62,12 +57,10 @@
     ctx.strokeStyle = cmd.color
     ctx.lineWidth = cmd.width
 
-    if cmd.mode == 'line'
-      drawLine(ctx, cmd.pt1, cmd.pt2, cmd.user_id)
-    else if cmd.mode == 'rect'
-      drawRect(ctx, cmd.pt1, cmd.pt2, cmd.user_id)
-    else if cmd.mode == 'ellipse'
-      drawEllipse(ctx, cmd.pt1, cmd.pt2, cmd.user_id)
+    switch cmd.mode
+      when 'line' then drawLine(ctx, cmd.pt1, cmd.pt2, cmd.user_id)
+      when 'rect' then drawRect(ctx, cmd.pt1, cmd.pt2, cmd.user_id)
+      when 'ellipse' then drawEllipse(ctx, cmd.pt1, cmd.pt2, cmd.user_id)
 
     # restore current config
     ctx.strokeStyle = myStrokeStyle
