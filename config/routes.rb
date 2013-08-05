@@ -11,7 +11,7 @@ MySite::Application.routes.draw do
     get "utils/secure_random"
   end
 
-  get '*rest' => 'home#index'
+  get '*rest' => 'home#index', rest: /((?!websocket).)*/
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

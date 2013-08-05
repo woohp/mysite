@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
  */
+
+.simple-color-picker, .simple-line-width-picker a {
+  cursor: pointer;
+}
+
+.simple-color-picker .color-preview {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.simple-line-width-picker .line-width-preview {
+  margin: 0;
+  background-color: black;
+  border: 0;
+  vertical-align: middle;
+  display: inline-block;
+  width: 5em;
+}
+
+.left-margin1 {
+  margin-left: 1em;
+}
+
+.right-margin {
+  margin-right: 1em;
+}
