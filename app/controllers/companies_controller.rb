@@ -6,6 +6,10 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    respond_with(@company = Company.includes(:filings).find(params[:id]), include: {filings: { only: [:category, :date]}})
+    company = Company.find(params[:id])
+    
+    h = company.attributes
+    h['filings'] = company.filings.select('id, category, date')
+    respond_with h
   end
 end

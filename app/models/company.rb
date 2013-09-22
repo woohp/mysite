@@ -94,8 +94,8 @@ class Company < ActiveRecord::Base
           name = item.name
           period = item.context.period.value
           value = item.value
-          next if value.nil? or (value[0] == '<' and value[-1] == '>')
-          value = value.to_f if value =~ /^-?\d+(\.\d+)?$/
+          next unless value =~ /^-?\d+(\.\d+)?$/
+          value = value.to_f
           period = [period['start_date'], period['end_date']] if period.class == Hash
 
           filing.details[name] << {period: period, value: value}

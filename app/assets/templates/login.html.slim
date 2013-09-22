@@ -1,7 +1,12 @@
-form
-  labeled-input(type="text" ng-model="login.username" label="Username" autocapitalize="off" autocorrect="off")
-  labeled-input(type="password" ng-model="login.password" label="Password")
-  .control-groups
-    .controls
-      button.btn.btn-primary(type="submit" ng-click="submit()") Go
-
+form(ng-submit="submit()")
+  .form-group.row
+    .col-lg-3
+      label.control-label(labeler) Username
+      input.form-control(type="text" ng-model="login.username" autocapitalize="off" autocorrect="off" labeled)
+  .form-group.row
+    .col-lg-3
+      label.control-label(labeler) Password
+      input.form-control(type="password" ng-model="login.password" labeled)
+  .row
+    .col-lg-3
+      button.btn.btn-primary(type="submit") Go

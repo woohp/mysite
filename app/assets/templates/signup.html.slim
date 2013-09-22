@@ -1,8 +1,19 @@
-form
-  labeled-input(type="text" ng-model="signup.username" label="Username" autocapitalize="off" autocorrect="off")
-  labeled-input(type="email" ng-model="signup.email" label="Email (optional)")
-  labeled-input(type="password" ng-model="signup.password" label="Password")
-  labeled-input(type="password" ng-model="signup.password_confirmation" label="Confirm Password")
-  .control-groups
-    .controls
-      button.btn.btn-primary(type="submit" ng-click="submit()") Go
+form(ng-submit="submit()")
+  .form-group.row
+    .col-lg-3
+      label.control-label(labeler) Username
+      input.form-control(type="text" ng-model="signup.username" autocapitalize="off" autocorrect="off" labeled)
+  .form-group.row
+    .col-lg-3
+      label.control-label(labeler) Email (optional)
+      input.form-control(type="email" ng-model="signup.email")
+  .form-group.row
+    .col-lg-3
+      label.control-label(labeler) Password
+      input.form-control(type="password" ng-model="signup.password")
+  .form-group.row
+    .col-lg-3
+      label.control-label(labeler) Confirm Password
+      input.form-control(type="password" ng-model="signup.password_confirmation")
+
+  button.btn.btn-primary(type="submit") Go

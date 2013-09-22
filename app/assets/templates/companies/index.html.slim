@@ -2,4 +2,4 @@ h1 Companies
 
 ul.list-unstyled
   li(ng-repeat="company in companies")
-    a(ng-href="/companies/{{ company.id }}") {{ company.name }}
+    a(ng-href="/companies/{{ company.id }}" ng-bind-html-unsafe="company.name")

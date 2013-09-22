@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20130914005050) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "companies", force: true do |t|
     t.string   "name",       null: false
     t.string   "symbol",     null: false
@@ -32,5 +36,25 @@ ActiveRecord::Schema.define(version: 20130914005050) do
   end
 
   add_index "filings", ["company_id"], name: "index_filings_on_company_id", using: :btree
+
+  create_table "todos", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "status_cd"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "todos", ["user_id"], name: "index_todos_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "username",         null: false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

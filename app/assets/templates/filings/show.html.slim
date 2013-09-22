@@ -1,0 +1,14 @@
+h1() {{ filing.company.name }} - {{ filing.category }} {{ filing.date | date:'shortDate' }}
+
+table.table
+  tr
+    th Item
+    th Details
+  tr(ng-repeat="(k, v) in filing.details")
+    td() {{ k | camelCaseToHuman }}
+    td
+      table.table.table-condensed
+        tr(ng-repeat="datum in v | orderBy:'period':true")
+          td() {{ datum.period }}
+          td() {{ datum.value }}
+
