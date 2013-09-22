@@ -15,7 +15,6 @@
 //= require websocket_rails/main
 //= require angular
 //= require angular-ui-bootstrap-tpls
-//= require sync
 //= require ./mysite
 //= require_tree .
 

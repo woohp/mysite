@@ -1,10 +1,9 @@
 .well
   form.form-inline(style="margin-bottom: 0")
-    label New
-    '
-    input.input-small(type="text" ng-model="newTodo.title" placeholder="Title")
-    '
-    input.btn.btn-primary(type="submit" ng-click="createNewTodo()")
+    .form-group>
+      label.sr-only Title
+      input.form-control(type="text" placeholder="Title" ng-model="newTodo.title")
+    button.btn.btn-primary(type="submit") Create New
 
 accordion#todos(close-others="oneAtATime")
   accordion-group(ng-repeat="todo in todos" heading="{{todo.title}}")

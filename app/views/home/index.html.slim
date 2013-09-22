@@ -1,24 +1,26 @@
 = template_assets
 
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container-fluid
-      button.btn.btn-navbar.icon-reorder(ng-click="navBarCollapsed = !navBarCollapsed")
-  
-      a.brand(href="/") Home
-      form.navbar-search
-        input.search-query.input-medium(type="search" placeholder="Search")
-      .collapse.nav-collapse(collapse="!navBarCollapsed")
-        ul.nav.pull-right
-          li(ng-show="user.username")
-            a(href="/settings") Settings
-          li(ng-show="!user.username")
-            a(href="/login") Login
-          li(ng-show="!user.username")
-            a(href="/signup") Sign up
-          li(ng-show="user.username")
-            a(href="/logout") Logout
+nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse(role="navigation")
+  .navbar-header
+    button.navbar-toggle(type="button" ng-click="navBarCollapsed = !navBarCollapsed")
+      i.icon-reorder
+    a.navbar-brand(href="/") Home
 
+  .collapse.navbar-collapse
+    ul.nav.navbar-nav
+      li(ng-show="user.username")
+        a(href="/todos") Todos
+      li(ng-show="user.username")
+        a(href="/whiteboards") Whiteboards
 
-.container-fluid
-  ng-view
+    ul.nav.navbar-nav.pull-right
+      li(ng-show="user.username")
+        a(href="/settings") Settings
+      li(ng-show="!user.username")
+        a(href="/login") Login
+      li(ng-show="!user.username")
+        a(href="/signup") Sign up
+      li(ng-show="user.username")
+        a(href="/logout") Logout
+
+ng-view

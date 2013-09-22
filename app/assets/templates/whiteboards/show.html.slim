@@ -1,16 +1,16 @@
 .btn-group
-  button.btn(type="button" ng-model="mode" btn-radio="'pencil'" title="pencil"): i.icon-pencil
-  button.btn(type="button" ng-model="mode" btn-radio="'line'" title="line") &#47;
-  button.btn(type="button" ng-model="mode" btn-radio="'rect'" title="rectangle"): i.icon-unchecked
-  button.btn(type="button" ng-model="mode" btn-radio="'ellipse'" title="ellipse"): i.icon-circle-blank
-  button.btn(type="button" ng-model="mode" btn-radio="'eraser'" title="ellipse"): i.icon-eraser
+  button.btn.btn-default(type="button" ng-model="mode" btn-radio="'pencil'" title="pencil"): i.icon-pencil
+  button.btn.btn-default(type="button" ng-model="mode" btn-radio="'line'" title="line") &#47;
+  button.btn.btn-default(type="button" ng-model="mode" btn-radio="'rect'" title="rectangle"): i.icon-unchecked
+  button.btn.btn-default(type="button" ng-model="mode" btn-radio="'ellipse'" title="ellipse"): i.icon-circle-blank
+  button.btn.btn-default(type="button" ng-model="mode" btn-radio="'eraser'" title="ellipse"): i.icon-eraser
 
 span.left-margin1 Width
 simple-line-width-picker(ng-model="lineWidth" choices="lineWidthChoices" style="display: inline")
 span.left-margin1 Color
 simple-color-picker(ng-model="color" choices="colorChoices" style="display: inline")
 
-#layers.row-fluid
+#layers(style="margin-top: 6px;")
   canvas#layer1(style="z-index: 1")
   canvas#layer2(style="z-index: 2"
     ng-mousedown="mousedown($event)"

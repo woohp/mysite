@@ -6,7 +6,7 @@
     ngModel: '='
   template: """
     <div class="dropdown simple-line-width-picker">
-      <a class="dropdown-toggle btn">
+      <a class="btn btn-default" dropdown-toggle>
         <hr class="line-width-preview" style="height: {{ngModel}}px">
         {{ngModel}}
       </a>

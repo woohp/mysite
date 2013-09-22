@@ -4,7 +4,7 @@
   scope:
     label: '@'
     ngModel: '='
-  template: '<div class="control-group"><label class="control-label">{{label}}</label><div class="controls"><input ng-model="ngModel"></div></div>'
+  template: '<div class="form-group"><label class="control-label">{{label}}</label><input class="form-control" ng-model="ngModel"></div>'
   link: (scope, element, attrs) ->
     id = "input-#{Math.floor(Math.random() * 100000)}"
     element.find('label').attr('for', id)

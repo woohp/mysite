@@ -6,7 +6,7 @@
     ngModel: '='
   template: """
     <div class="dropdown simple-color-picker">
-      <a class="dropdown-toggle btn">
+      <a class="btn btn-default" dropdown-toggle>
         <span class="color-preview" style="background-color: {{ngModel}}" /> {{ngModel}}
       </a>
       <ul class="dropdown-menu">

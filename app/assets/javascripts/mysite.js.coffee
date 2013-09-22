@@ -1,4 +1,4 @@
-@app = angular.module('MySite', ['sync', 'ui.bootstrap', 'ui.bootstrap.tpls'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
+@app = angular.module('MySite', ['ui.bootstrap', 'ui.bootstrap.tpls'], ['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) ->
 
   $routeProvider
     .when('/signup', templateUrl: 'signup', controller: 'SignupCtrl')
