@@ -44,7 +44,9 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
+    bigdecimal (1.2.1)
     builder (3.1.4)
+    coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -52,6 +54,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    curb (0.8.4)
     daemons (1.1.9)
     em-synchrony (1.0.3)
       eventmachine (>= 1.0.0.beta.1)
@@ -68,6 +71,13 @@ GEM
     faye-websocket (0.6.3)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.2.0)
+    feedzirra (0.0.24)
+      activesupport (>= 2.3.8)
+      builder (>= 2.1.2)
+      curb (>= 0.2.3)
+      loofah (>= 0.3.1)
+      nokogiri (> 0.0.0)
+      sax-machine (>= 0.0.12)
     font-awesome-rails (3.2.1.3)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
@@ -79,16 +89,24 @@ GEM
       thor (>= 0.14, < 2.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    libv8 (3.16.14.3)
+    logger (1.2.8)
+    loofah (1.2.1)
+      nokogiri (>= 1.4.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25)
+    mini_portile (0.5.1)
     minitest (4.7.5)
     minitest-rails (0.9.2)
       minitest (~> 4.7)
       rails (>= 3.0)
     multi_json (1.7.9)
     multipart-post (1.2.0)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -96,7 +114,15 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oj (2.1.4)
+    pg (0.16.0)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -115,11 +141,14 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
     redis (3.0.4)
+    ref (1.0.5)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
+    sax-machine (0.1.0)
+      nokogiri (> 0.0.0)
     simple_enum (1.6.5)
       activesupport (>= 3.0.0)
     slim (2.0.1)
@@ -130,6 +159,7 @@ GEM
       activesupport (>= 3.0, < 4.1)
       railties (>= 3.0, < 4.1)
       slim (~> 2.0)
+    slop (3.4.6)
     sorcery (0.8.2)
       bcrypt-ruby (~> 3.0.0)
       oauth (~> 0.4.4)
@@ -143,8 +173,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
     temple (0.6.6)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -169,6 +201,11 @@ GEM
       rails
       redis
       thin
+    xbrlware-ruby19 (1.1.2.19.2)
+      bigdecimal
+      logger
+      xml-simple
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
@@ -179,16 +216,21 @@ DEPENDENCIES
   bootstrap-sass!
   coffee-rails (~> 4.0.0)
   factory_girl_rails
+  feedzirra
   font-awesome-rails
   jquery-rails
   minitest-rails
+  oj
+  pg
+  pry-rails
   rails (~> 4.0.0)
   sass-rails (~> 4.0.0)
   simple_enum
   slim-rails
   sorcery
-  sqlite3
   template_assets!
+  therubyracer
   thin
   uglifier (>= 1.3.0)
   websocket-rails
+  xbrlware-ruby19

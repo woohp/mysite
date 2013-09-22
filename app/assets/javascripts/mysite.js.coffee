@@ -15,6 +15,11 @@
     .when('/todos/:id', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
     .when('/todos/:id/edit', templateUrl: 'todos/show', controller: 'TodosShowCtrl', resolve: { login: requireLogin })
 
+    .when('/companies', templateUrl: 'companies/index', controller: 'CompaniesIndexCtrl')
+    .when('/companies/:id', templateUrl: 'companies/show', controller: 'CompaniesShowCtrl')
+
+    .when('/filings/:id', templateUrl: 'filings/show', controller: 'FilingsShowCtrl')
+
   $locationProvider.html5Mode true
 
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
@@ -33,7 +38,7 @@ requireLogin = ['$q', '$http', 'User', '$location', ($q, $http, User, $location)
       defer.resolve()
     error = ->
       defer.reject("Failed to login")
-      $location.path '/login'
+      $location.path('/login').replace()
     $http.get('/api/users/current').success(success).error(error)
 
   return defer.promise
@@ -43,5 +48,5 @@ logout = ['User', '$http', '$location', (User, $http, $location) ->
   $http.delete('/api/logout').success ->
     User.username = ''
     User.id = ''
-    $location.path '/login'
+    $location.path('/login').replace()
 ]

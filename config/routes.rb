@@ -2,6 +2,8 @@ MySite::Application.routes.draw do
   root to: 'home#index'
 
   scope "/api" do
+    resources :companies, only: [:index, :show]
+    resources :filings, only: [:show]
     resources :users do
       get 'current', on: :collection
     end

@@ -1,0 +1,5 @@
+h1() {{ company.name }}
+
+ul.list-unstyled
+  li(ng-repeat="filing in company.filings | orderBy:'date':true")
+    a(ng-href="/filings/{{ filing.id }}") {{ filing.category }} - {{ filing.date | date:'shortDate' }}
