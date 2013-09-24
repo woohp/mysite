@@ -1,26 +1,28 @@
 = template_assets
 
 nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse(role="navigation")
-  .navbar-header
-    button.navbar-toggle(type="button" ng-click="navBarCollapsed = !navBarCollapsed")
-      i.icon-reorder
-    a.navbar-brand(href="/") Home
+  .container
+    .navbar-header
+      button.navbar-toggle(type="button" ng-click="navBarCollapsed = !navBarCollapsed")
+        i.icon-reorder
+      a.navbar-brand(href="/") Home
 
-  .collapse.navbar-collapse
-    ul.nav.navbar-nav
-      li(ng-show="user.username")
-        a(href="/todos") Todos
-      li(ng-show="user.username")
-        a(href="/whiteboards") Whiteboards
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li(ng-show="user.username")
+          a(href="/todos") Todos
+        li(ng-show="user.username")
+          a(href="/whiteboards") Whiteboards
 
-    ul.nav.navbar-nav.pull-right
-      li(ng-show="user.username")
-        a(href="/settings") Settings
-      li(ng-show="!user.username")
-        a(href="/login") Login
-      li(ng-show="!user.username")
-        a(href="/signup") Sign up
-      li(ng-show="user.username")
-        a(href="/logout") Logout
+      ul.nav.navbar-nav.pull-right
+        li(ng-show="user.username")
+          a(href="/settings") Settings
+        li(ng-show="!user.username")
+          a(href="/login") Login
+        li(ng-show="!user.username")
+          a(href="/signup") Sign up
+        li(ng-show="user.username")
+          a(href="/logout") Logout
 
-ng-view
+.container
+  ng-view

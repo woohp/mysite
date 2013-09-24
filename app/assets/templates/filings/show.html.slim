@@ -1,14 +1,18 @@
 h1() {{ filing.company.name }} - {{ filing.category }} {{ filing.date | date:'shortDate' }}
 
-table.table
+form
+  .form-group.row
+    .col-lg-3: input.form-control.input-sm(type="search" ng-model="searchText" placeholder="Search")
+
+table.table.table-condensed
   tr
-    th Item
-    th Details
-  tr(ng-repeat="(k, v) in filing.details")
-    td() {{ k | camelCaseToHuman }}
+    th.col-lg-8 Item
+    th.col-lg-4 Details
+  tr(ng-repeat="detail in details | filter:searchText | orderBy:'name'")
+    td() {{ detail.name | camelCaseToHuman }}
     td
-      table.table.table-condensed
-        tr(ng-repeat="datum in v | orderBy:'period':true")
-          td() {{ datum.period }}
-          td() {{ datum.value }}
+      table.table.table-condensed.table-unstyled.table-hover
+        tr(ng-repeat="entry in detail.entries | orderBy:'period':true")
+          td() {{ entry.period }}
+          td.filing-value() {{ entry.value }}
 

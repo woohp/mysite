@@ -4,6 +4,25 @@ class Feedzirra::Parser::Atom
 end
 
 
+class XBRLParser < ::Ox::Sax
+  def initialize(&block)
+    @yield_to = block
+  end
+  
+  def start_element(name)
+  end
+
+  def end_element
+  end
+
+  def attr(name, value)
+  end
+
+  def text(value)
+  end
+end
+
+
 class Company < ActiveRecord::Base
   has_many :filings, dependent: :destroy
 

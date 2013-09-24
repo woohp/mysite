@@ -1,5 +1,9 @@
 h1 Companies
 
-ul.list-unstyled
-  li(ng-repeat="company in companies")
-    a(ng-href="/companies/{{ company.id }}" ng-bind-html-unsafe="company.name")
+table.table.table-condensed.row
+  tr
+    th.col-lg-11 Name
+    th.col-lg-1 Symbol
+  tr(ng-repeat="company in companies")
+    td: a(ng-href="/companies/{{ company.id }}" ng-bind-html-unsafe="company.name")
+    td() {{ company.symbol | uppercase }}
